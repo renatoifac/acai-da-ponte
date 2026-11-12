@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#FAF7F2">
+  <meta name="description" content="Monte seu açaí do seu jeito e envie o pedido para retirada pelo WhatsApp.">
+  <title>Açaí da Ponte — Seu açaí, do seu jeito</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="preview-notice" id="preview-notice" role="status">
+    <span class="notice-icon" aria-hidden="true">i</span>
+    <span>Prévia demonstrativa: cardápio e preços são exemplos. Configure os dados reais antes de publicar.</span>
+  </div>
+
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="Açaí da Ponte, início">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 42 42" fill="none">
+          <path d="M8 14.5h26l-3.1 16.2a4 4 0 0 1-3.9 3.3H15a4 4 0 0 1-3.9-3.3L8 14.5Z" fill="currentColor"/>
+          <path d="M8 14.5c0-2.8 5.8-5.1 13-5.1s13 2.3 13 5.1-5.8 5-13 5-13-2.2-13-5Z" fill="#FAF7F2"/>
+          <path d="M18 10.1c1.8-3.8 5.2-5.6 9.7-5.2-.5 4-2.6 6.7-6.2 7.8" stroke="#2E7D32" stroke-width="2.8" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span class="brand-copy">
+        <span class="brand-name">Açaí da Ponte</span>
+        <span class="brand-location">Sena Madureira · AC</span>
+      </span>
+    </a>
+
+    <div class="header-right">
+      <div class="hours-wrap">
+        <div class="store-status" id="store-status" aria-live="polite">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span id="status-label">Horário a definir</span>
+          <span class="status-next" id="next-opening"></span>
+        </div>
+        <button class="hours-toggle" id="hours-toggle" type="button" aria-expanded="false" aria-controls="hours-popover">
+          Ver horários <span aria-hidden="true">⌄</span>
+        </button>
+        <div class="hours-popover" id="hours-popover" hidden>
+          <strong>Horário de funcionamento</strong>
+          <ul id="hours-list"></ul>
+        </div>
+      </div>
+      <a class="header-order-link" href="#montar">Montar meu açaí <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span> Açaí feito do seu jeito</p>
+        <h1 id="hero-title">Seu momento<br>merece <em>mais açaí.</em></h1>
+        <p class="hero-description">Escolha seu tamanho, adicione seus favoritos e deixe o resto com a gente.</p>
+        <a class="primary-button hero-button" href="#montar">Monte seu copo <span aria-hidden="true">↓</span></a>
+        <div class="hero-footnote"><span class="footnote-sparkle" aria-hidden="true">✳</span> Preparado com carinho em Sena Madureira</div>
+      </div>
+      <div class="hero-art" aria-label="Ilustração de um copo de açaí com frutas">
+        <div class="art-sun"></div>
+        <div class="art-leaf leaf-one"></div>
+        <div class="art-leaf leaf-two"></div>
+        <div class="art-berry berry-one"></div>
+        <div class="art-berry berry-two"></div>
+        <div class="cup-shadow"></div>
+        <div class="açaí-cup">
+          <div class="cup-topping"><span></span><span></span><span></span><i></i><b></b></div>
+          <div class="cup-rim"></div>
+          <div class="cup-body"><span>AÇAÍ<br><small>DA PONTE</small></span></div>
+          <div class="cup-base"></div>
+        </div>
+        <span class="art-note note-top">feito na hora</span>
+        <span class="art-note note-bottom">energia boa ✳</span>
+      </div>
+    </section>
+
+    <section class="menu-section" id="montar" aria-labelledby="menu-heading">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow"><span class="eyebrow-line"></span> O cardápio</p>
+          <h2 id="menu-heading">Monte sua <em>combinação</em></h2>
+        </div>
+        <p class="section-intro">Um tamanho + até 3 complementos.<br>Do seu jeito, sem complicação.</p>
+      </div>
+
+      <div class="builder-layout">
+        <div class="menu-options">
+          <section class="option-group" aria-labelledby="size-heading">
+            <div class="option-heading">
+              <span class="step-number">01</span>
+              <div>
+                <h3 id="size-heading">Escolha o tamanho</h3>
+                <p>Selecione o copo que combina com sua fome.</p>
+              </div>
+              <span class="required-tag">Obrigatório</span>
+            </div>
+            <div class="size-grid" id="size-options" role="radiogroup" aria-labelledby="size-heading"></div>
+          </section>
+
+          <section class="option-group toppings-group" aria-labelledby="toppings-heading">
+            <div class="option-heading">
+              <span class="step-number">02</span>
+              <div>
+                <h3 id="toppings-heading">Adicione complementos</h3>
+                <p>Escolha até 3 para deixar ainda mais gostoso.</p>
+              </div>
+              <span class="counter-pill" id="topping-counter">0 de 3</span>
+            </div>
+            <div class="topping-grid" id="topping-options"></div>
+            <p class="limit-message" id="limit-message" aria-live="polite"></p>
+          </section>
+        </div>
+
+        <aside class="order-card" aria-labelledby="order-heading">
+          <div class="order-card-top">
+            <div class="order-icon" aria-hidden="true">✳</div>
+            <div>
+              <p class="eyebrow">Quase pronto</p>
+              <h3 id="order-heading">Seu pedido</h3>
+            </div>
+            <button class="reset-button" id="reset-order" type="button" disabled>Recomeçar</button>
+          </div>
+          <div class="order-items" id="order-items" aria-live="polite" aria-relevant="all"></div>
+          <div class="order-total">
+            <span>Total</span>
+            <strong id="order-total">R$ 0,00</strong>
+          </div>
+          <p class="pickup-note"><span aria-hidden="true">⌖</span> Pedido para retirada na loja</p>
+          <button class="whatsapp-button" id="whatsapp-button" type="button" disabled>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.5 4.1 1.6 5.9L.2 24l6.5-1.7a11.8 11.8 0 0 0 5.4 1.3h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.1-1.2-6.1-3.5-8.3ZM12.1 21.6c-1.7 0-3.4-.5-4.9-1.3l-.4-.2-3.9 1 1-3.8-.3-.4a9.7 9.7 0 0 1-1.5-5.2c0-5.4 4.4-9.8 9.8-9.8 2.6 0 5.1 1 6.9 2.9a9.7 9.7 0 0 1 2.9 6.9c0 5.4-4.4 9.8-9.8 9.8Zm5.4-7.3c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-1 1.1-.2.2-.4.2-.7.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.5-1.7-1.7-2-.2-.3 0-.5.1-.6.1-.1.3-.4.5-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.1-.2-.5-.5-.4-.7-.4H7.8c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.7 1.1 2.9c.1.2 2 3.1 4.8 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4Z"/></svg>
+            <span id="whatsapp-label">Configure o WhatsApp para ativar</span>
+            <span aria-hidden="true">↗</span>
+          </button>
+          <p class="order-footnote" id="order-footnote">Configure o número da loja no arquivo <code>script.js</code> antes de publicar.</p>
+          <p class="message-feedback" id="message-feedback" role="status"></p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="promise-strip" aria-label="Sobre a Açaí da Ponte">
+      <span class="promise-mark" aria-hidden="true">✳</span>
+      <p>Seu açaí, sua pausa, <strong>seu momento.</strong></p>
+      <span class="promise-location">SENA MADUREIRA · ACRE</span>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="footer-brand" href="#">Açaí da Ponte</a>
+    <span>Feito com carinho no Acre <span aria-hidden="true">♥</span><br>Projeto acadêmico — IFAC, disciplina de IHC. Empresa fictícia.</span>
+  </footer>
+
+  <div class="mobile-order-bar" id="mobile-order-bar">
+    <div class="mobile-total"><span>Total do pedido</span><strong id="mobile-total">R$ 0,00</strong></div>
+    <a class="mobile-continue" href="#order-heading">Ver pedido <span aria-hidden="true">↑</span></a>
+  </div>
+
+  <dialog class="reset-dialog" id="reset-dialog" aria-labelledby="dialog-title">
+    <form method="dialog">
+      <h2 id="dialog-title">Recomeçar pedido?</h2>
+      <p>Suas escolhas atuais serão removidas.</p>
+      <div class="dialog-actions">
+        <button class="dialog-cancel" value="cancel">Continuar escolhendo</button>
+        <button class="dialog-confirm" value="confirm">Recomeçar</button>
+      </div>
+    </form>
+  </dialog>
+</body>
+</html>
